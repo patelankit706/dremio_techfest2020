@@ -1,0 +1,30 @@
+{% extends 'headerpage.html' %}
+{% load static %}
+
+{% block content %}
+    <h2>Fraud Detection</h2>
+    <br>
+    <form method="post" enctype="multipart/form-data" action="fraud_detection_pred">
+ {% csrf_token %}
+
+    <!--Material textarea-->
+    <div class="md-form mb-4 pink-textarea active-pink-textarea">
+    <textarea id="InputText1" name="InputText1" class="md-textarea form-control" rows="3" placeholder="Enter the sentence" ></textarea>
+    <textarea id="InputText2" name="InputText2" class="md-textarea form-control" rows="3" placeholder="Enter the sentence" ></textarea>
+    <textarea id="InputText3" name="InputText3" class="md-textarea form-control" rows="3" placeholder="Enter the sentence" ></textarea>
+    <textarea id="InputText4" name="InputText4" class="md-textarea form-control" rows="3" placeholder="Enter the sentence" ></textarea>    
+    </div>
+    
+    {%  if input_string  %}
+        <h3 class="md-form mb-4 center">{{input_string}} </h3>
+        <hr>
+    {% endif %}
+
+    
+    <input type="submit" value="Submit" class="btn btn-primary"></div>
+ 
+  
+ 
+</form>
+<br>
+{% endblock %}
