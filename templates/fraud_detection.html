@@ -4,24 +4,42 @@
 {% block content %}
     <h2>Fraud Detection</h2>
     <br>
+    <p>There is a lack of public available datasets on financial services and specially in the emerging mobile money transactions domain. Financial datasets are important to many researchers and in particular to us performing research in the domain of fraud detection. Part of the problem is the intrinsically private nature of financial transactions, that leads to no publicly available datasets.
+
+        We present a synthetic dataset generated using the simulator called PaySim as an approach to such a problem. PaySim uses aggregated data from the private dataset to generate a synthetic dataset that resembles the normal operation of transactions and injects malicious behaviour to later evaluate the performance of fraud detection methods.</p>
     <form method="post" enctype="multipart/form-data" action="fraud_detection_pred">
  {% csrf_token %}
 
     <!--Material textarea-->
     <div class="md-form mb-4 pink-textarea active-pink-textarea">
-    <textarea id="InputText1" name="InputText1" class="md-textarea form-control" rows="3" placeholder="Enter the sentence" ></textarea>
-    <textarea id="InputText2" name="InputText2" class="md-textarea form-control" rows="3" placeholder="Enter the sentence" ></textarea>
-    <textarea id="InputText3" name="InputText3" class="md-textarea form-control" rows="3" placeholder="Enter the sentence" ></textarea>
-    <textarea id="InputText4" name="InputText4" class="md-textarea form-control" rows="3" placeholder="Enter the sentence" ></textarea>    
-    </div>
+    <h3>Enter Input</h3>  <hr>
+    <h4>Step</h4>     
+    <textarea id="InputText1" name="InputText1" class="md-textarea form-control" rows="1" placeholder="Number of Hops in Transaction" ></textarea>
+    <h4>Type</h4> 
+    <textarea id="InputText2" name="InputText2" class="md-textarea form-control" rows="1" placeholder="Transaction Type (CASH_OUT, PAYMENT, Other)" ></textarea>
+    <h4>Amount</h4> 
+    <textarea id="InputText3" name="InputText3" class="md-textarea form-control" rows="1" placeholder="Money involved Transaction" ></textarea>
+    <h4>OldBalanceOrig</h4> 
+    <textarea id="InputText4" name="InputText4" class="md-textarea form-control" rows="1" placeholder="Old Balance in Source Account after Transaction" ></textarea>    
+    <h4>NewBalanceOrig</h4> 
+    <textarea id="InputText5" name="InputText5" class="md-textarea form-control" rows="1" placeholder="New Balance in Source Account after Transaction" ></textarea>
+    <h4>OldBalanceDest</h4> 
+    <textarea id="InputText6" name="InputText6" class="md-textarea form-control" rows="1" placeholder="Old Balance in Destination Account after Transaction" ></textarea>
+    <h4>NewBalanceDest</h4> 
+    <textarea id="InputText7" name="InputText7" class="md-textarea form-control" rows="1" placeholder="New Balance in Destination Account after Transaction" ></textarea>
+    <h4>ErrorBalanceOrig</h4> 
+    <textarea id="InputText8" name="InputText8" class="md-textarea form-control" rows="1" placeholder="Inconsistency in Source Account" ></textarea>
+    <h4>ErrorBalanceDest</h4> 
+    <textarea id="InputText9" name="InputText9" class="md-textarea form-control" rows="1" placeholder="Inconsistency in Destination Account" ></textarea>
+</div>
     
-    {%  if input_string  %}
-        <h3 class="md-form mb-4 center">{{input_string}} </h3>
+    {%  if flag  %}
+        <h3 class="md-form mb-4 center">The above Transaction is predicted to be : {{prediction_text}} </h3>
         <hr>
     {% endif %}
 
     
-    <input type="submit" value="Submit" class="btn btn-primary"></div>
+    <input type="submit" value="Make Prediction" class="btn btn-primary"></div>
  
   
  
