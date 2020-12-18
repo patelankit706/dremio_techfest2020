@@ -24,5 +24,6 @@ urlpatterns = [
     url('tableau', dashboard_views.tableau, name="tableau"),
     url('fraud_detection_pred', dashboard_views.fraud_detection_pred, name="fraud_detection_pred"),
     url('fraud_detection', dashboard_views.fraud_detection, name="fraud_detection"),
+    url('model_retraining', dashboard_views.model_retraining, name="model_retraining"),
     url('^$', dashboard_views.index, name="Dashboard"),
 ]

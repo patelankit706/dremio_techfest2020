@@ -45,4 +45,20 @@
  
 </form>
 <br>
+<form method="post" enctype="multipart/form-data" action="model_retraining">
+    {% csrf_token %}
+    
+       <!--Material textarea-->
+       
+       {%  if flag2  %}
+           <h3 class="md-form mb-4 center">Retraining Successfull </h3>
+           <hr>
+       {% endif %}
+   
+       
+       <input type="submit" value="Fetch Data from Dremio and Retrain" class="btn btn-primary"></div>
+    
+     
+    
+</form>
 {% endblock %}

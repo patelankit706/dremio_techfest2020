@@ -13,3 +13,8 @@
   .active-pink-textarea.md-form textarea.md-textarea:focus:not([readonly])+label {
     color: #f48fb1;
   }
+  div.pos_left {
+    position: relative;
+    left: -30px;
+  }
+   

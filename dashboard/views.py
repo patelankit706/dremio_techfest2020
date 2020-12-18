@@ -34,3 +34,10 @@ def fraud_detection_pred(request):
     flag=len(prediction)    
     context={'flag':flag,'prediction_text':prediction_text}
     return render(request, 'fraud_detection.html',context)
+
+def model_retraining(request):
+    #fraud_detectionViews.model_retrain()
+    flag2=1
+    context={'flag2':flag2,'prediction_text':prediction_text}
+    return render(request, 'fraud_detection.html',context)
+
