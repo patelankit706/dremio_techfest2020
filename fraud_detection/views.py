@@ -23,10 +23,8 @@ def model_retrain():
     df = pd.read_sql(sql,cnxn)
     df = df.rename(columns={'oldbalanceOrg':'oldBalanceOrig', 'newbalanceOrig':'newBalanceOrig', \
                             'oldbalanceDest':'oldBalanceDest', 'newbalanceDest':'newBalanceDest'})
-    df = df.drop(['isFlaggedFraud'],axis=1)
     df['errorBalanceOrig'] = df.newBalanceOrig + df.amount - df.oldBalanceOrig
     df['errorBalanceDest'] = df.oldBalanceDest + df.amount - df.newBalanceDest
-    df = df.drop(['nameOrig','nameDest'], axis=1)
     enc = LabelEncoder()
     df['type'] = enc.fit_transform(df['type'])
     Y = df.isFraud
